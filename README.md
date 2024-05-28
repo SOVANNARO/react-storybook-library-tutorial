@@ -5,6 +5,8 @@
 - clsx https://www.npmjs.com/package/clsx
 - tailwind-merge https://www.npmjs.com/package/tailwind-merge
 
+Reference: https://youtu.be/L8SxJ_cN1qc
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
