@@ -1,5 +1,10 @@
 # React + TypeScript + Vite
 
+## Dependency:
+- cva https://cva.style/docs
+- clsx https://www.npmjs.com/package/clsx
+- tailwind-merge https://www.npmjs.com/package/tailwind-merge
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
