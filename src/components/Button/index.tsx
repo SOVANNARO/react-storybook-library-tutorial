@@ -1,13 +1,14 @@
-import { ComponentProps, forwardRef } from "react";
-import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/utils";
+import { cva, VariantProps } from "class-variance-authority";
+import { ComponentProps, forwardRef } from "react";
 
-const buttonStyles = cva([
+const buttonStyles = cva(
+    [
       "w-full",
       "rounded-md",
       "font-semibold",
       "focus:outline-none",
-      "disable:cursor-not-allowed"
+      "disabled:cursor-not-allowed",
     ],
     {
       variants: {
@@ -19,7 +20,7 @@ const buttonStyles = cva([
         size: {
           sm: "px-4 py-2 text-sm",
           md: "px-4 py-2 text-base",
-          lg: "px-4 py-2 text-lg",
+          lg: "px-6 py-3 text-lg",
         },
         colorscheme: {
           primary: "text-white",
@@ -29,38 +30,40 @@ const buttonStyles = cva([
         {
           variant: "solid",
           colorscheme: "primary",
-          className: "bg-primary-500 hover:bg-primary-600"
+          className: "bg-primary-500 hover:bg-primary-600",
         },
         {
           variant: "outline",
           colorscheme: "primary",
-          className: "text-primary-600 border-primary-500 bg-transaction hover:bg-primary-100"
+          className:
+              "text-primary-600 border-primary-500 bg-transparent hover:bg-primary-100",
         },
         {
           variant: "ghost",
           colorscheme: "primary",
-          className: "text-primary-600 bg-transaction hover:bg-primary-100"
-        }
-      ]
+          className: "text-primary-600 bg-transparent hover:bg-primary-100",
+        },
+      ],
+      defaultVariants: {
+        variant: "solid",
+        size: "md",
+        colorscheme: "primary",
+      },
     }
-)
+);
 
 type ButtonProps = ComponentProps<"button"> & VariantProps<typeof buttonStyles>;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({
-       variant,
-       size,
-       colorscheme,
-       className,
-       ...props
-     }, ref) => {
+    ({ variant, size, colorscheme, className, ...props }, ref) => {
       return (
           <button
               ref={ref}
-              className={cn(buttonStyles({ variant, size, colorscheme, className }))} {...props}
+              className={cn(buttonStyles({ variant, size, colorscheme, className }))}
+              {...props}
           />
-      )
-    })
+      );
+    }
+);
 
 export default Button;
